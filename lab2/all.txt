@@ -1,0 +1,184 @@
+import Foundation
+
+//wykonalam wszystkie zadania, Tamara Mruk 197584
+
+//--------------------------------------------1
+
+func minValue(a:Int, b:Int) -> Int {
+  if(a<=b) {return a}
+  return b
+}
+print("ZAD 1")
+print(minValue(a:73533,b:463573))
+print(" ")
+
+//-------------------------------------------2
+
+func lastDigit(_ number:Int) -> Int {
+  return number%10
+}
+print("ZAD 2")
+print(lastDigit(382792))
+print(" ")
+
+//--------------------------------------------3
+
+func divides(_ a:Int, _ b:Int) -> Bool{
+  return a % b == 0
+}
+
+func countDivisors(_ n:Int) -> Int{
+  var countdivisors = 0
+    for i in 1...n {
+        if divides(n, i) {
+            countdivisors += 1
+        }
+    }
+    return countdivisors
+}
+
+func isPrime(_ n:Int) -> Bool {
+  return countDivisors(n) == 2
+}
+
+print("ZAD 3")
+print(divides(7, 3)) // false - 7 is not divisible by 3
+print(divides(8, 4)) // true - 8 is divisible by 4
+
+print(countDivisors(1)) // 1 - 1
+print(countDivisors(10)) // 4 - 1, 2, 5 and 10
+print(countDivisors(12)) // 6 - 1, 2, 3, 4, 6 and 12
+
+print(isPrime(3)) // true
+print(isPrime(8)) // false
+print(isPrime(13)) // true
+
+print(" ")
+
+//----------------------------------------------------------4
+
+let bart = {
+  print("I will pass this course with best mark, because Swift is great!")
+}
+
+func smartBart(n: Int, closure: () -> Void) {
+  for _ in 1...n {
+    closure()
+  }
+}
+print("ZAD 4")
+smartBart(n: 11, closure: bart)
+print(" ")
+
+//--------------------------------------------------------------5
+
+let numbers4div = [10, 16, 18, 30, 38, 40, 44, 50]
+print("ZAD 5")
+print(numbers4div.filter{$0 % 4 == 0})
+print(" ")
+
+//-------------------------------------------------------------6
+
+print("ZAD 6")
+print(numbers4div.reduce(Int.min){ max($0, $1) })
+print(" ")
+
+//--------------------------------------------------------------7
+
+var strings = ["Gdansk", "University", "of", "Technology"]
+
+print("ZAD 7")
+print(strings.reduce("") { $0 + ($0.isEmpty ? "" : " ") + $1 })
+print(" ")
+
+//----------------------------------------------------------------8
+
+let numbers = [1, 2, 3, 4, 5, 6]
+
+let result = numbers
+  .filter { $0 % 2 != 0 }       // odd numbers
+  .map { $0 * $0 }              // square number
+  .reduce(0, +)                 // sum squared
+
+print("ZAD 8")
+print(result)
+print(" ")
+
+//-----------------------------------------------------------------9
+
+func minMax(_ a: Int, _ b: Int) -> (Int, Int) {
+  return (min(a, b), max(a, b))
+}
+
+print("ZAD 9")
+print(minMax(3424, 256))
+print(" ")
+
+//--------------------------------------------------------------10
+
+var stringsArray = ["gdansk", "university", "gdansk", "university", "university", "of", "technology", "technology", "gdansk", "gdansk"]
+
+var countDict = [String: Int]()
+
+for string in stringsArray {
+  countDict[string, default: 0] += 1
+}
+
+let countedStrings = countDict.map { ($0.key, $0.value) }
+print("ZAD 10")
+print(countedStrings)
+print(" ")
+
+//---------------------------------------------------------------11
+
+enum Day: Int {
+    case monday = 1
+    case tuesday
+    case wednesday
+    case thursday
+    case friday
+    case saturday
+    case sunday
+    
+    func emoji() -> String {
+        switch self {
+        case .monday:
+            return "🐱"
+        case .tuesday:
+            return "🐷"
+        case .wednesday:
+            return "🐗" 
+        case .thursday:
+            return "🐻" 
+        case .friday:
+            return "🐹"
+        case .saturday:
+            return "🐲"
+        case .sunday:
+            return "🦩"
+        }
+    }
+}
+print("ZAD 11")
+
+var today = Day.monday
+print("Today is \(today) \(today.emoji())")
+
+today = Day.tuesday
+print("Today is \(today) \(today.emoji())")
+
+today = Day.wednesday
+print("Today is \(today) \(today.emoji())")
+
+today = Day.thursday
+print("Today is \(today) \(today.emoji())")
+
+today = Day.friday
+print("Today is \(today) \(today.emoji())")
+
+today = Day.saturday
+print("Today is \(today) \(today.emoji())")
+
+today = Day.sunday
+print("Today is \(today) \(today.emoji())")
+

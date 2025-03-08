@@ -1,0 +1,184 @@
+//wykonalam wszystkie zadania, Tamara Mruk 197584
+
+//--------------------------------------------1
+var five = 5
+var ten = 10
+var fifteen = five + ten
+
+print("ZAD 1")
+print("SUM : \(five) + \(ten) = \(fifteen)")
+print(" ")
+
+//--------------------------------------------2
+var GDstring = "Gdansk University of Technology"
+var GDstringHeart = ""
+let sparklingHeart = "\u{1F496}"
+
+for character in GDstring {
+    if character == "n"{
+        GDstringHeart += sparklingHeart
+    }
+    else {
+        GDstringHeart += String(character)
+    }
+}
+print("ZAD 2")
+print(GDstringHeart)
+print(" ")
+
+//-------------------------------------------3
+let name = "Tamara Mruk"
+var reversedName = ""
+
+for character in name {
+
+    reversedName = String(character) + reversedName
+}
+
+print("ZAD 3")
+print(reversedName)
+print(" ")
+
+//--------------------------------------------4
+let longString = "I will pass this course with best mark, because Swift is great!"
+var longIndex = 0
+
+print("ZAD 4")
+while longIndex < 11 {
+    print(longString)
+    longIndex += 1
+}
+print(" ")
+
+//--------------------------------------------5
+var squareIndex = 0 
+
+print("ZAD 5")
+while squareIndex < 10 { //N=10
+
+    print(squareIndex*squareIndex)
+    squareIndex += 1
+}
+print(" ")
+
+//-----------------------------------------------6
+let kitty = " 🐱 "
+var index1 = 0
+var index2 = 0
+
+print("ZAD 6")
+while index1 < 10 {
+
+    while index2 < 10 {
+
+        print(kitty, terminator: "")
+        index2 += 1
+    }
+    index2 = 0
+    print("")
+    index1 += 1
+}
+print(" ")
+
+//--------------------------------------------------7
+var maxNumbers = [5, 10, 20, 15, 80, 13]
+var currentMax = 0
+
+for element in maxNumbers {
+    if element > currentMax {
+        currentMax = element
+    }
+}
+print("ZAD 7")
+print(currentMax)
+print(" ")
+
+//-----------------------------------------------------8
+var rNumbers = [5, 10, 20, 15, 80, 13]
+var reverseNumbers = ""
+
+for number in rNumbers {
+
+    reverseNumbers = String(number) + " " + reverseNumbers
+}
+print("ZAD 8")
+print(reverseNumbers)
+print(" ")
+
+//-----------------------------------------------------9
+var allNumbers = [10, 20, 10, 11, 13, 20, 10, 30]
+
+var uniqueNumbersSet = Set<Int>()
+var uniqueNumbers = ""
+
+for number in allNumbers {
+
+    if !uniqueNumbersSet.contains(number) {
+        uniqueNumbersSet.insert(number)
+        uniqueNumbers += String(number) + " "
+    }
+}
+print("ZAD 9")
+print(uniqueNumbers)
+print(" ")
+
+//----------------------------------------------------------10
+var dNumber = 10
+var divisors = Set<Int>()
+var dIndex = 1
+
+while dIndex <= dNumber {
+
+    if dNumber % dIndex == 0 {
+        divisors.insert(dIndex)
+    }
+    dIndex += 1
+}
+print("ZAD 10")
+print(divisors.sorted())
+print(" ")
+
+//-----------------------------------------------------------11
+var flights: [[String: String]] = [
+[
+"flightNumber" : "AA8025",
+"destination" : "Copenhagen"
+],
+[
+"flightNumber" : "BA1442",
+"destination" : "New York"
+],
+[
+"flightNumber" : "BD6741",
+"destination" : "Barcelona"
+]
+]
+
+var flightNumbers = Array<String>()
+
+for flight in flights {
+
+    if let flightNumber = flight["flightNumber"] {
+        flightNumbers.append(flightNumber)
+    }
+    
+}
+print("ZAD 11")
+print(flightNumbers)
+print(" ")
+
+//-----------------------------------------------------------12
+var sNames = ["Hommer","Lisa","Bart"]
+
+var fullNames: [[String: String]] = []
+
+for sName in sNames {
+    let person = [
+        "firstName": sName,
+        "lastName": "Simpson"
+    ]
+    fullNames.append(person)
+}
+print("ZAD 12")
+print(fullNames)
+print(" ")
