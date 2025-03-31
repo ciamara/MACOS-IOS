@@ -1,0 +1,128 @@
+// Zrobilam wszystkie podpunkty wlacznie z JSONem
+// jest to reprezentacja kolekcji artystow na spotify wraz z pomocnicza klasa utworu
+
+// struct for artist statistics
+struct ArtistStats {
+    var monthly_streams: Int
+    var followers: Int
+    var albums_released: Int
+    
+    func display() {
+        print("  Streams: \(monthly_streams) | Followers: \(followers) | Albums Released: \(albums_released)")
+    }
+}
+
+// enum for music genres
+enum Genre: String {
+    case black_metal = "Black Metal"
+    case progressive_metal = "Progressive Metal"
+    case alternative_metal = "Alternative Metal"
+    case nu_metal = "Nu Metal"
+    case death_metal = "Death Metal"
+    case rock = "Rock"
+}
+
+//collection to include in the main collection
+class Song: Hashable{
+    // properties
+    var name: String
+    var duration: Float
+    var album: String
+    var plays: Int
+    
+    // initializer
+    init(name: String, duration: Float, album: String, plays: Int) {
+        self.name = name
+        self.duration = duration
+        self.album = album
+        self.plays = plays
+    }
+    
+    // conform to hashable
+    static func == (lhs: Song, rhs: Song) -> Bool {
+        return lhs.name == rhs.name && lhs.album == rhs.album
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+        hasher.combine(album)
+    }
+    
+    // display object
+    func display() {
+        print("     Name: \(name) | Duration: \(duration) | Album: \(album) | Plays: \(plays)")
+    }
+}
+
+// my main collection
+class Artist{
+    // properties
+    var name: String
+    var verified: Bool
+    var description: String
+    var genre: Genre
+    var stats: ArtistStats
+    var songs: Set<Song>
+    
+    // initializer
+    init(name: String, verified: Bool, description: String, genre: Genre, stats: ArtistStats, songs: Set<Song> = []) {
+        self.name = name
+        self.verified = verified
+        self.description = description
+        self.genre = genre
+        self.stats = stats
+        self.songs = songs
+    }
+    
+    // add song instances
+    func addSong(_ song: Song) {
+        songs.insert(song)
+    }
+    // display object
+    func display() {
+        print("Name: \(name) | Verified: \(verified) | Genre: \(genre.rawValue) | Description: \(description) | ")
+        stats.display()
+        print("  Songs:")
+        for song in songs {
+            song.display()
+        }
+    }
+}
+
+// usage
+
+let stats1 = ArtistStats(monthly_streams: 4849758, followers: 5000000, albums_released: 5)
+let song1 = Song(name: "Jimmy", duration: 5.24, album: "Aenima", plays: 19228196)
+let song2 = Song(name: "Parabola", duration: 6.03, album: "Lateralus", plays: 76446171)
+
+let artist1 = Artist(name: "TOOL", verified: true, description: "American heavy, unpredictable, progressive metal", genre: .progressive_metal, stats: stats1)
+artist1.addSong(song1)
+artist1.addSong(song2)
+
+
+let stats2 = ArtistStats(monthly_streams: 112055, followers: 1128463, albums_released: 5)
+let song3 = Song(name: "I Am The Black Wizards", duration: 6.15, album: "Eperor/Wrath Of The Tyrant", plays: 685674)
+let song4 = Song(name: "Cosmic Keys To My Creations And Times", duration: 6.06, album: "In The Nightside Eclipse", plays: 1738738)
+
+let artist2 = Artist(name: "Emperor", verified: true, description: "Norwegian pioneers of black metal", genre: .black_metal, stats: stats2)
+artist2.addSong(song3)
+artist2.addSong(song4)
+
+
+let stats3 = ArtistStats(monthly_streams: 217116, followers: 7263973, albums_released: 11)
+let song5 = Song(name: "God Of Emptiness", duration: 5.26, album: "Covenant", plays: 3133807)
+let song6 = Song(name: "Chapel of Ghouls", duration: 4.57, album: "Altars of Madness", plays: 4207199)
+
+let artist3 = Artist(name: "Morbid Angel", verified: true, description: "American death metal that pushed the genre to extremities", genre: .death_metal, stats: stats2)
+artist3.addSong(song5)
+artist3.addSong(song6)
+
+// artist array
+
+var artists: [Artist] = [artist1, artist2, artist3]
+print("\n🎶 List of Artists:")
+print("----------------------------------------------------------")
+for artist in artists {
+    artist.display()
+    print("------------------------------------------------------")
+}

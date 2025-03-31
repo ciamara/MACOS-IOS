@@ -1,0 +1,77 @@
+[
+  {
+    "name": "TOOL",
+    "verified": true,
+    "description": "American heavy, unpredictable, progressive metal",
+    "genre": "Progressive Metal",
+    "stats": {
+      "monthly_streams": 4849758,
+      "followers": 5000000,
+      "albums_released": 5
+    },
+    "songs": [
+      {
+        "name": "Jimmy",
+        "duration": 5.24,
+        "album": "Aenima",
+        "plays": 19228196
+      },
+      {
+        "name": "Parabola",
+        "duration": 6.03,
+        "album": "Lateralus",
+        "plays": 76446171
+      }
+    ]
+  },
+  {
+    "name": "Emperor",
+    "verified": true,
+    "description": "Norwegian pioneers of black metal",
+    "genre": "Black Metal",
+    "stats": {
+      "monthly_streams": 112055,
+      "followers": 1128463,
+      "albums_released": 5
+    },
+    "songs": [
+      {
+        "name": "I Am The Black Wizards",
+        "duration": 6.15,
+        "album": "Eperor/Wrath Of The Tyrant",
+        "plays": 685674
+      },
+      {
+        "name": "Cosmic Keys To My Creations And Times",
+        "duration": 6.06,
+        "album": "In The Nightside Eclipse",
+        "plays": 1738738
+      }
+    ]
+  },
+  {
+    "name": "Morbid Angel",
+    "verified": true,
+    "description": "American death metal that pushed the genre to extremities",
+    "genre": "Death Metal",
+    "stats": {
+      "monthly_streams": 217116,
+      "followers": 7263973,
+      "albums_released": 11
+    },
+    "songs": [
+      {
+        "name": "God Of Emptiness",
+        "duration": 5.26,
+        "album": "Covenant",
+        "plays": 3133807
+      },
+      {
+        "name": "Chapel of Ghouls",
+        "duration": 4.57,
+        "album": "Altars of Madness",
+        "plays": 4207199
+      }
+    ]
+  }
+]
